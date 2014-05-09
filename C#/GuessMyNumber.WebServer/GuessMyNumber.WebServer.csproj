@@ -157,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\GuessMyNumberWebServer.pubxml" />
+    <None Include="Properties\PublishProfiles\GuessMyNumberWebServerLocal.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

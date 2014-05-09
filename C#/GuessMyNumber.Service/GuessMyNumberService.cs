@@ -102,10 +102,10 @@ namespace GuessMyNumber.Server
             {
                 sessionPlayer2History.AddMove(new PlayerHistoryItemObject
                 {
-                    Number = player2Move.Respose.Number.ToString(),
-                    Goods = player2Move.Respose.Goods,
-                    Regulars = player2Move.Respose.Regulars,
-                    Bads = player2Move.Respose.Bads
+                    Number = player2Move.Response.Number.ToString(),
+                    Goods = player2Move.Response.Goods,
+                    Regulars = player2Move.Response.Regulars,
+                    Bads = player2Move.Response.Bads
                 });
             }
 
@@ -113,10 +113,10 @@ namespace GuessMyNumber.Server
             {
                 sessionPlayer1History.AddMove(new PlayerHistoryItemObject
                 {
-                    Number = player1Move.Respose.Number.ToString(),
-                    Goods = player1Move.Respose.Goods,
-                    Regulars = player1Move.Respose.Regulars,
-                    Bads = player1Move.Respose.Bads
+                    Number = player1Move.Response.Number.ToString(),
+                    Goods = player1Move.Response.Goods,
+                    Regulars = player1Move.Response.Regulars,
+                    Bads = player1Move.Response.Bads
                 });
             }
 
