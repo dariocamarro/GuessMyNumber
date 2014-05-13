@@ -1,7 +1,7 @@
-﻿using Gamify.Service.Contracts.Notifications;
+﻿using Gamify.Contracts.Notifications;
 using System.Collections.Generic;
 
-namespace GuessMyNumber.Service.Contracts
+namespace GuessMyNumber.Contracts
 {
     public class GuessMyNumberGameInformationNotificationObject : INotificationObject
     {

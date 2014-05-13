@@ -1,8 +1,8 @@
-﻿using Gamify.Service.Contracts.Notifications;
+﻿using Gamify.Contracts.Notifications;
 
-namespace GuessMyNumber.Server.Contracts
+namespace GuessMyNumber.Contracts
 {
-    class GuessMyNumberMoveNotificationObject : INotificationObject
+    public class GuessMyNumberMoveNotificationObject : INotificationObject
     {
         public string Message
         {

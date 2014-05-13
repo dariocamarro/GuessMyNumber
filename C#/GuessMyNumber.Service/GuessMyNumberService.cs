@@ -1,12 +1,11 @@
-﻿using Gamify.Sdk;
+﻿using Gamify.Contracts.Notifications;
+using Gamify.Contracts.Requests;
+using Gamify.Sdk;
 using Gamify.Service;
-using Gamify.Service.Contracts.Notifications;
-using Gamify.Service.Contracts.Requests;
+using GuessMyNumber.Contracts;
 using GuessMyNumber.Core;
 using GuessMyNumber.Core.Game;
 using GuessMyNumber.Core.Interfaces;
-using GuessMyNumber.Server.Contracts;
-using GuessMyNumber.Service.Contracts;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;

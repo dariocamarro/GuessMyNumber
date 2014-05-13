@@ -1,6 +1,6 @@
-﻿using Gamify.Service.Contracts.Requests;
+﻿using Gamify.Contracts.Requests;
 
-namespace GuessMyNumber.Server.Contracts
+namespace GuessMyNumber.Contracts
 {
     public class GuessMyNumberMoveRequestObject : IRequestObject
     {
