@@ -108,6 +108,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GuessMyNumberClient.cs" />
+    <Compile Include="IGuessMyNumberClient.cs" />
+    <Compile Include="MessageReceivedEventArgs.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
