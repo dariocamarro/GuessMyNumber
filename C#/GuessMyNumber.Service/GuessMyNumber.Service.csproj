@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Gamify.Contracts">
+      <HintPath>..\Lib\Gamify.Contracts.dll</HintPath>
+    </Reference>
     <Reference Include="Gamify.Sdk, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\Gamify.Sdk.dll</HintPath>
@@ -50,10 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\GuessMyNumberGameInformationNotificationObject.cs" />
-    <Compile Include="Contracts\GuessMyNumberMoveResultNotificationObject.cs" />
-    <Compile Include="Contracts\GuessMyNumberMoveNotificationObject.cs" />
-    <Compile Include="Contracts\GuessMyNumberMoveRequestObject.cs" />
     <Compile Include="GuessMyNumberService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,6 +60,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GuessMyNumber.Contracts\GuessMyNumber.Contracts.csproj">
+      <Project>{3f4995cc-3f6d-423d-a384-ab8635af1171}</Project>
+      <Name>GuessMyNumber.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GuessMyNumber.Core\GuessMyNumber.Core.csproj">
       <Project>{9ec0e63b-bc4c-44e0-80dd-50d27e5a0e05}</Project>
       <Name>GuessMyNumber.Core</Name>

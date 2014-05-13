@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuessMyNumber.Service", "Gu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuessMyNumber.WebServer", "GuessMyNumber.WebServer\GuessMyNumber.WebServer.csproj", "{938DCEB3-610C-493C-B535-1D794756D34B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuessMyNumber.Contracts", "GuessMyNumber.Contracts\GuessMyNumber.Contracts.csproj", "{3F4995CC-3F6D-423D-A384-AB8635AF1171}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{938DCEB3-610C-493C-B535-1D794756D34B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{938DCEB3-610C-493C-B535-1D794756D34B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{938DCEB3-610C-493C-B535-1D794756D34B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F4995CC-3F6D-423D-A384-AB8635AF1171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F4995CC-3F6D-423D-A384-AB8635AF1171}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F4995CC-3F6D-423D-A384-AB8635AF1171}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F4995CC-3F6D-423D-A384-AB8635AF1171}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
