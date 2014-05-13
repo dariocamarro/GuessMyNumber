@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -16,18 +17,19 @@ import ar.com.gmn.android.R;
 import ar.com.gmn.android.core.Evaluador;
 import ar.com.gmn.android.core.Numero;
 import ar.com.gmn.android.core.Respuesta;
-import ar.com.gmn.android.util.CustomNumberPickerFactory;
-import ar.com.gmn.android.view.component.CustomNumberPicker;
+
+
+import ar.com.gmn.android.view.component.CustomNumberPicker2;
 import ar.com.gmn.android.view.component.TRRespuesta;
 
 public class SinglePlayerFragment extends Fragment {
-
+    public final static  int NUMBERPIKER_STYLE = 2;
 	private Evaluador e;
-	private CustomNumberPicker digit1;
-	private CustomNumberPicker digit2;
-	private CustomNumberPicker digit3;
-	private CustomNumberPicker digit4;
-	private TextView probar;
+	private CustomNumberPicker2 digit1;
+	private CustomNumberPicker2 digit2;
+	private CustomNumberPicker2 digit3;
+	private CustomNumberPicker2 digit4;
+	private ImageView probar;
 	private Integer turno = 0;
 	private Numero codigo;
 	private TableLayout tResultados;
@@ -54,40 +56,18 @@ public class SinglePlayerFragment extends Fragment {
 		e = new Evaluador(codigo);
 		this.type = Typeface.createFromAsset(this.container.getContext()
 				.getAssets(), "fonts/EraserDust.ttf");
-		digit1 = CustomNumberPickerFactory.createNumberPiker(
-				this.container.getContext(),
-				CustomNumberPickerFactory.SINGLE_PLAYER);
-		digit2 = CustomNumberPickerFactory.createNumberPiker(
-				this.container.getContext(),
-				CustomNumberPickerFactory.SINGLE_PLAYER);
-		digit3 = CustomNumberPickerFactory.createNumberPiker(
-				this.container.getContext(),
-				CustomNumberPickerFactory.SINGLE_PLAYER);
-		digit4 = CustomNumberPickerFactory.createNumberPiker(
-				this.container.getContext(),
-				CustomNumberPickerFactory.SINGLE_PLAYER);
+		digit1 = (CustomNumberPicker2)container.findViewById(R.id.digit1);
+        digit2 = (CustomNumberPicker2)container.findViewById(R.id.digit2);
+        digit3 = (CustomNumberPicker2)container.findViewById(R.id.digit3);
+        digit4 = (CustomNumberPicker2)container.findViewById(R.id.digit4);
 
-		LinearLayout numeroLayout = (LinearLayout) this.container.findViewById(R.id.numeroLayout);
-		numeroLayout.addView(digit1);
-		numeroLayout.addView(digit2);
-		numeroLayout.addView(digit3);
-		numeroLayout.addView(digit4);
-		probar = new TextView(container.getContext());
-		probar.setText("?");
 
-		probar.setTextAppearance(container.getContext(),
-				R.style.SP_NumberPiker_Button);
-		probar.setTypeface(type);
-		probar.setGravity(Gravity.CENTER);
 
-		probar.setBackgroundResource(R.drawable.chalk_frame);
-		 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
-				 LayoutParams.WRAP_CONTENT);
-//		probar.getBackground().setColorFilter(0x80000000,
-//				PorterDuff.Mode.SRC_ATOP);
-		
-		 probar.setLayoutParams(params);
-		numeroLayout.addView(probar);
+
+		probar = (ImageView)container.findViewById(R.id.prueba);
+
+
+
 
 		createTablaResultados();
 
@@ -102,7 +82,7 @@ public class SinglePlayerFragment extends Fragment {
 
 				if (n.tieneRepetidos()) {
 
-					CharSequence text = "N�meros repetidos!";
+					CharSequence text = container.getResources().getString(R.string.repetidos);
 					int duration = Toast.LENGTH_SHORT;
 
 					Toast toast = Toast.makeText(v.getContext(), text,
@@ -117,7 +97,7 @@ public class SinglePlayerFragment extends Fragment {
 						digit2.setCorrecto();
 						digit3.setCorrecto();
 						digit4.setCorrecto();
-						probar.setText(":)");
+
 						probar.setEnabled(false);
 					} else {
 						if (turno >= 7) {
@@ -125,7 +105,7 @@ public class SinglePlayerFragment extends Fragment {
 							digit2.setIncorrecto(codigo.get(2));
 							digit3.setIncorrecto(codigo.get(3));
 							digit4.setIncorrecto(codigo.get(4));
-							probar.setText("X");
+
 							probar.setEnabled(false);
 						}
 					}
