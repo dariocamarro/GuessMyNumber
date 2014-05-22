@@ -1,8 +1,8 @@
 ﻿using Gamify.Contracts.Requests;
 
-namespace GuessMyNumber.Contracts
+namespace GuessMyNumber.Contracts.Requests
 {
-    public class GuessMyNumberMoveRequestObject : IRequestObject
+    public class MoveRequestObject : IRequestObject
     {
         public string SessionId { get; set; }
 

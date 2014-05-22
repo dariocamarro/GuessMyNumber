@@ -1,22 +1,31 @@
-﻿using Gamify.Service;
+﻿using Gamify.Core.Interfaces;
+using Gamify.Service;
 using Gamify.WebServer;
-using GuessMyNumber.Core.Game;
-using GuessMyNumber.Server;
+using GuessMyNumber.Service;
+using System.Collections.Generic;
 
 namespace GuessMyNumber.WebServer
 {
-    public class GuessMyNumberWebSocketHandler : GamifyWebSocketHandler
+    public class GuessMyNumberWebSocketHandler : GameWebSocketHandler
     {
-        public GuessMyNumberWebSocketHandler(string userName)
-            : base(userName)
+        private readonly INotificationService notificationService;
+        private readonly IGameController gameController;
+
+        public GuessMyNumberWebSocketHandler(string userName, INotificationService notificationService, IGameController gameController)
+            : base(userName, new GameService(notificationService, gameController))
         {
+            this.notificationService = notificationService;
+            this.gameController = gameController;
         }
 
-        protected override IGamifyService IntializeGamifyService()
+        protected override IEnumerable<IGameConfigurator> GetGameConfigurators()
         {
-            var gameController = new GuessMyNumberGameController();
+            var gameConfigurators = new List<IGameConfigurator>();
 
-            return new GuessMyNumberService(gameController);
+            gameConfigurators.Add(new GamifyConfigurator(this.notificationService, this.gameController));
+            gameConfigurators.Add(new GuessMyNumberConfigurator(this.notificationService, this.gameController));
+
+            return gameConfigurators;
         }
     }
 }

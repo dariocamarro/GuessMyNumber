@@ -33,9 +33,8 @@
     <Reference Include="Gamify.Contracts">
       <HintPath>..\Lib\Gamify.Contracts.dll</HintPath>
     </Reference>
-    <Reference Include="Gamify.Sdk, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Lib\Gamify.Sdk.dll</HintPath>
+    <Reference Include="Gamify.Core">
+      <HintPath>..\Lib\Gamify.Core.dll</HintPath>
     </Reference>
     <Reference Include="Gamify.Service">
       <HintPath>..\Lib\Gamify.Service.dll</HintPath>
@@ -53,7 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GuessMyNumberService.cs" />
+    <Compile Include="GuessMyNumberAcceptGameComponent.cs" />
+    <Compile Include="GuessMyNumberConfigurator.cs" />
+    <Compile Include="GuessMyNumberCreateGameComponent.cs" />
+    <Compile Include="GuessMyNumberMoveComponent.cs" />
+    <Compile Include="GuessMyNumberOpenGameComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

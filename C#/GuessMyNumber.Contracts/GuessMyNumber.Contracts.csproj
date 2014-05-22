@@ -33,10 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="GuessMyNumberGameInformationNotificationObject.cs" />
-    <Compile Include="GuessMyNumberMoveNotificationObject.cs" />
-    <Compile Include="GuessMyNumberMoveRequestObject.cs" />
-    <Compile Include="GuessMyNumberMoveResultNotificationObject.cs" />
+    <Compile Include="Notifications\GameInformationNotificationObject.cs" />
+    <Compile Include="Notifications\MoveNotificationObject.cs" />
+    <Compile Include="Requests\MoveRequestObject.cs" />
+    <Compile Include="Notifications\MoveResultNotificationObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
