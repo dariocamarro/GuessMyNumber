@@ -39,8 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gamify.Sdk">
-      <HintPath>..\Lib\Gamify.Sdk.dll</HintPath>
+    <Reference Include="Gamify.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Gamify.Core.dll</HintPath>
     </Reference>
     <Reference Include="Gamify.Service">
       <HintPath>..\Lib\Gamify.Service.dll</HintPath>
@@ -117,7 +118,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\GuessMyNumberController.cs" />
+    <Compile Include="Controllers\GuessMyNumberApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

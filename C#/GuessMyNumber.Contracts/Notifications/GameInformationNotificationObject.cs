@@ -1,9 +1,9 @@
 ﻿using Gamify.Contracts.Notifications;
 using System.Collections.Generic;
 
-namespace GuessMyNumber.Contracts
+namespace GuessMyNumber.Contracts.Notifications
 {
-    public class GuessMyNumberGameInformationNotificationObject : INotificationObject
+    public class GameInformationNotificationObject : INotificationObject
     {
         public string Message
         {
