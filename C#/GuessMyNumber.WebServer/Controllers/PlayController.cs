@@ -5,7 +5,7 @@ using Microsoft.Web.WebSockets;
 
 namespace GuessMyNumber.WebServer.Controllers
 {
-    public class GuessMyNumberApiController : GameApiController
+    public class PlayController : GameApiController
     {
         protected override WebSocketHandler GetWebSocketHandler(string userName)
         {

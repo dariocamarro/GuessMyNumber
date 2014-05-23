@@ -12,10 +12,12 @@ namespace GuessMyNumber.WebServer
         private readonly IGameController gameController;
 
         public GuessMyNumberWebSocketHandler(string userName, INotificationService notificationService, IGameController gameController)
-            : base(userName, new GameService(notificationService, gameController))
+            : base(userName)
         {
             this.notificationService = notificationService;
             this.gameController = gameController;
+
+            this.Initialize(new GameService(this.notificationService, this.gameController));
         }
 
         protected override IEnumerable<IGameConfigurator> GetGameConfigurators()

@@ -20,8 +20,8 @@
 
 			  loggedUser.UserName = name;
 			  
-			  //var uri = "ws://192.168.1.100/guessmynumber/api/guessmynumber?userName=" + name;
-			  var uri = "ws://ec2-54-207-14-192.sa-east-1.compute.amazonaws.com/guessmynumber/api/guessmynumber?userName=" + name;
+			  <!-- var uri = "ws://localhost/guessmynumber/play?userName=" + name; -->
+			  var uri = "ws://ec2-54-207-14-192.sa-east-1.compute.amazonaws.com/guessmynumber/play?userName=" + name;
 			  
 			  websocket = new WebSocket(uri);
 					  
