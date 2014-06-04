@@ -40,7 +40,7 @@ namespace GuessMyNumber.Core.Game
                 throw new ApplicationException(errorMessage);
             }
 
-            return this.sessionHistoryService.GetBySessionPlayer(this.SessionName, this.Information.Name);
+            return this.sessionHistoryService.GetBySessionPlayer(this.SessionName, this.Information.UserName);
         }
 
         public override IGameMoveResponse<IAttemptResult> ProcessMove(IGameMove<INumber> move)
@@ -57,7 +57,7 @@ namespace GuessMyNumber.Core.Game
 
             var sessionHistoryItem = new SessionHistoryItem<INumber, IAttemptResult>(triedNumber, result);
 
-            this.sessionHistoryService.Add(this.SessionName, this.Information.Name, sessionHistoryItem);
+            this.sessionHistoryService.Add(this.SessionName, this.Information.UserName, sessionHistoryItem);
 
             return new GuessMyNumberResponse(result);
         }
