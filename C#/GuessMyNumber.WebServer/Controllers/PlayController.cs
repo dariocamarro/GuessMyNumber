@@ -1,18 +1,14 @@
-﻿using Gamify.Service;
+﻿using Gamify.Sdk.Setup;
 using Gamify.WebServer.Controllers;
-using GuessMyNumber.Core.Game;
-using Microsoft.Web.WebSockets;
+using GuessMyNumber.Core.Game.Setup;
 
 namespace GuessMyNumber.WebServer.Controllers
 {
     public class PlayController : GameApiController
     {
-        protected override WebSocketHandler GetWebSocketHandler(string userName)
+        protected override IGameDefinition GetGameDefinition()
         {
-            var notificationService = new NotificationService();
-            var gameController = new GuessMyNumberGameController();
-
-            return new GuessMyNumberWebSocketHandler(userName, notificationService, gameController);
+            return new GuessMyNumberDefinition();
         }
     }
 }
