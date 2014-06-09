@@ -23,7 +23,7 @@ namespace GuessMyNumber.Core.Game
         {
             if (this.Number != default(INumber))
             {
-                var errorMessage = string.Format("The number of Player {0} can't be changed once assigned", this.Information.UserName);
+                var errorMessage = string.Format("The number of Player {0} can't be changed once assigned", this.Information.Name);
 
                 throw new ApplicationException(errorMessage);
             }
@@ -35,19 +35,19 @@ namespace GuessMyNumber.Core.Game
         {
             if (string.IsNullOrEmpty(this.SessionName))
             {
-                var errorMessage = string.Format("The player {0} has not been assigned to the session yet", this.Information.UserName);
+                var errorMessage = string.Format("The player {0} has not been assigned to the session yet", this.Information.Name);
 
                 throw new ApplicationException(errorMessage);
             }
 
-            return this.sessionHistoryService.GetBySessionPlayer(this.SessionName, this.Information.UserName);
+            return this.sessionHistoryService.GetBySessionPlayer(this.SessionName, this.Information.Name);
         }
 
         public override IGameMoveResponse<IAttemptResult> ProcessMove(IGameMove<INumber> move)
         {
             if (this.Number == default(INumber))
             {
-                var errorMessage = string.Format("The player {0} is not ready because it doesn't have a number assigned", this.Information.UserName);
+                var errorMessage = string.Format("The player {0} is not ready because it doesn't have a number assigned", this.Information.Name);
 
                 throw new ApplicationException(errorMessage);
             }
@@ -57,7 +57,7 @@ namespace GuessMyNumber.Core.Game
 
             var sessionHistoryItem = new SessionHistoryItem<INumber, IAttemptResult>(triedNumber, result);
 
-            this.sessionHistoryService.Add(this.SessionName, this.Information.UserName, sessionHistoryItem);
+            this.sessionHistoryService.Add(this.SessionName, this.Information.Name, sessionHistoryItem);
 
             return new GuessMyNumberResponse(result);
         }

@@ -10,8 +10,8 @@ namespace GuessMyNumber.Core.Game.Setup
         {
             var sessionPlayer1 = session.Player1 as GuessMyNumberPlayer;
             var sessionPlayer2 = session.Player2 as GuessMyNumberPlayer;
-            var sessionPlayer1History = new PlayerHistoryObject(sessionPlayer1.Information.UserName);
-            var sessionPlayer2History = new PlayerHistoryObject(sessionPlayer2.Information.UserName);
+            var sessionPlayer1History = new PlayerHistoryObject(sessionPlayer1.Information.Name);
+            var sessionPlayer2History = new PlayerHistoryObject(sessionPlayer2.Information.Name);
 
             var sessionPlayer2Moves = sessionPlayer1.GetHistory().Get();
 
