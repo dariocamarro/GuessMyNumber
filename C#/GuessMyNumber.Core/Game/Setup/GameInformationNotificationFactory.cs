@@ -1,6 +1,6 @@
 ﻿using Gamify.Sdk;
 using Gamify.Sdk.Contracts.Notifications;
-using Gamify.Sdk.Setup;
+using Gamify.Sdk.Setup.Definition;
 
 namespace GuessMyNumber.Core.Game.Setup
 {
