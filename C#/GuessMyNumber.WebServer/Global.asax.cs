@@ -3,6 +3,7 @@ using Autofac.Integration.WebApi;
 using Gamify.Sdk;
 using Gamify.Sdk.Setup;
 using GuessMyNumber.Core.Game.Setup;
+using System;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
@@ -51,7 +52,7 @@ namespace GuessMyNumber.WebServer
             var containerBuilder = new ContainerBuilder();
 
             containerBuilder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-            containerBuilder.RegisterInstance(gameInitializer).As<IGameInitializer>().InstancePerApiRequest();
+            containerBuilder.RegisterInstance(gameInitializer).As<IGameInitializer>();
             containerBuilder.RegisterType<JsonSerializer>().As<ISerializer>().InstancePerApiRequest();
 
             this.guessMyNumberContainer = containerBuilder.Build();
