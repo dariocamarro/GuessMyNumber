@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="GuessMyNumber.WebServer.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="GuessMyNumber.WebServer.GuessMyNumberApplication" Language="C#" %>

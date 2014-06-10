@@ -39,15 +39,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gamify.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Lib\Gamify.Core.dll</HintPath>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.4.1\lib\net40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="Gamify.Service">
-      <HintPath>..\Lib\Gamify.Service.dll</HintPath>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\packages\Autofac.WebApi.3.1.0\lib\net40\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
-    <Reference Include="Gamify.WebServer">
-      <HintPath>..\Lib\Gamify.WebServer.dll</HintPath>
+    <Reference Include="Gamify.Sdk">
+      <HintPath>..\Lib\Gamify.Sdk.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.WebSockets">
@@ -118,17 +117,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\PlayController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="GuessMyNumberWebSocketHandler.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="GameWebSocketHandler.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\PlayController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -150,10 +149,6 @@
     <ProjectReference Include="..\GuessMyNumber.Core\GuessMyNumber.Core.csproj">
       <Project>{9ec0e63b-bc4c-44e0-80dd-50d27e5a0e05}</Project>
       <Name>GuessMyNumber.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GuessMyNumber.Service\GuessMyNumber.Service.csproj">
-      <Project>{5537ccd4-f7e1-4ec9-b95f-011762f23a23}</Project>
-      <Name>GuessMyNumber.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

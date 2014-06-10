@@ -12,24 +12,20 @@
 		  
 		  $(function() {
 			$('#register').click(function(e) {
-			  e.preventDefault();
-			  
-			  $('#status').removeClass('offline').addClass('pending').text('Connecting...');
-							
-			  var name = $('#name').val();
+				e.preventDefault();
 
-			  loggedUser.UserName = name;
-			  
-			  <!-- var uri = "ws://localhost/guessmynumber/play?userName=" + name; -->
-			  var uri = "ws://ec2-54-207-14-192.sa-east-1.compute.amazonaws.com/guessmynumber/play?userName=" + name;
-			  
-			  websocket = new WebSocket(uri);
-					  
-			  //attach event handlers
-			  websocket.onopen = onOpen;
-			  websocket.onclose = onClose;
-			  websocket.onmessage = onMessage;
-			  websocket.onerror = onError;
+				var uri = "ws://localhost/guessmynumber/play";
+				<!-- var uri = "ws://ec2-54-207-14-192.sa-east-1.compute.amazonaws.com/guessmynumber/play"; -->
+
+				websocket = new WebSocket(uri);
+						
+				//attach event handlers
+				websocket.onopen = onOpen;
+				websocket.onclose = onClose;
+				websocket.onmessage = onMessage;
+				websocket.onerror = onError;
+							  
+				$('#status').removeClass('offline').addClass('pending').text('Connecting...');
 			});
 
 			$('#startGame').click(function(e) {
@@ -51,7 +47,7 @@
 			  e.preventDefault();
 			  
 			  var playerNumber = $('#player2Number').val();
-			  var gameAcceptedRequest = { SessionId : loggedUser.Session, PlayerName : loggedUser.UserName, AdditionalInformation : playerNumber };
+			  var gameAcceptedRequest = { SessionName : loggedUser.Session, PlayerName : loggedUser.UserName, AdditionalInformation : playerNumber };
 			  var serializedRequest = JSON.stringify(gameAcceptedRequest);
 
 			  var request = { Type: 3, SerializedRequestObject: serializedRequest };
@@ -65,7 +61,7 @@
 			  e.preventDefault();
 			  
 			  var playerNumber = $('#player2Number').val();
-			  var gameRejectedRequest = { SessionId : loggedUser.Session, PlayerName : loggedUser.UserName };
+			  var gameRejectedRequest = { SessionName : loggedUser.Session, PlayerName : loggedUser.UserName };
 			  var serializedRequest = JSON.stringify(gameRejectedRequest);
 
 			  var request = { Type: 4, SerializedRequestObject: serializedRequest };
@@ -79,7 +75,7 @@
 			  e.preventDefault();
 			  
 			  var number = $('#number').val();
-			  var gameMoveRequest = { SessionId: loggedUser.Session, PlayerName : loggedUser.UserName, Number: number };
+			  var gameMoveRequest = { SessionName: loggedUser.Session, PlayerName : loggedUser.UserName, MoveInformation: number };
 			  var serializedRequest = JSON.stringify(gameMoveRequest);
 
 			  var request = { Type: 5, SerializedRequestObject: serializedRequest };
@@ -106,14 +102,24 @@
 		  });
 		  
 		  function onOpen(evt){
+			var name = $('#name').val();
+
+			loggedUser.UserName = name;
+
+			$('#status').removeClass('pending').addClass('online').text('Online');
+
+			$('#playerLogged').text(loggedUser.UserName);
+			$('#userConnected').show('fast');
+			$('#usersSection').show('fast');
+			$('#connectUser').hide('fast', function() { $('#newGame').show('fast'); });
+
 			LogMessage('Connected to Game Server');
 			
-			$('#status').removeClass('pending').addClass('online').text('Online');
-			
-		    $('#playerLogged').text(loggedUser.UserName);
-		    $('#userConnected').show('fast');
-		    $('#usersSection').show('fast');
-		    $('#connectUser').hide('fast', function() { $('#newGame').show('fast'); });
+			var playerConnectRequest = { PlayerName : name, AccessToken : '' };
+			var serializedRequest = JSON.stringify(playerConnectRequest);
+			var request = { Type: 1, SerializedRequestObject: serializedRequest };
+						
+			websocket.send(JSON.stringify(request));
 		  }
 		  
 		  function onClose(evt){
@@ -137,35 +143,35 @@
 			var notificationObject = JSON.parse(notification.SerializedNotificationObject);
 
 			if (notification.Type == 1) { //UserConnected
-			  var message = notificationObject.Message;
-			  
-			  LogMessage(message);
-			  
-			  var connectedUsers = $('#onlineUsers').text();
-			  
-			  if(connectedUsers == '') {
-				connectedUsers = notificationObject.PlayerName;
-			  } else {
-				connectedUsers = connectedUsers + ", " + notificationObject.PlayerName;
-			  }
+				var message = notificationObject.Message;
 
-			  $('#onlineUsers').text(connectedUsers);
-			}else if (notification.Type == 2) { // GameInvite
+				LogMessage(message);
+
+				var connectedUsers = $('#onlineUsers').text();
+
+				if(connectedUsers == '') {
+					connectedUsers = notificationObject.PlayerName;
+				} else {
+					connectedUsers = connectedUsers + ", " + notificationObject.PlayerName;
+				}
+
+				$('#onlineUsers').text(connectedUsers);
+			} else if (notification.Type == 2) { // GameInvite
 			  var message = notificationObject.Message;
 			  
 			  LogMessage(message);
 			  
 			  $('#newGame').hide('fast', function() { $('#acceptGame').show('fast'); });
-			  $('#sessionId').val(notificationObject.SessionId);
+			  $('#sessionId').val(notificationObject.SessionName);
 			  $('#player1Name').val(notificationObject.Player1Name);
 			  
-			  loggedUser.Session = notificationObject.SessionId;
+			  loggedUser.Session = notificationObject.SessionName;
 			}else if (notification.Type == 3) { //GameCreated
 			  var message = notificationObject.Message;
 			  
 			  LogMessage(message);
 			  
-			  loggedUser.Session = notificationObject.SessionId;
+			  loggedUser.Session = notificationObject.SessionName;
 			}else if (notification.Type == 4) { //GameRejected
 			  var message = notificationObject.Message;
 			  

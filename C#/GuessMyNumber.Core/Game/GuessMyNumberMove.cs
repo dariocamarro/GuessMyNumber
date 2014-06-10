@@ -1,4 +1,4 @@
-﻿using Gamify.Core.Interfaces;
+﻿using Gamify.Sdk;
 using GuessMyNumber.Core.Interfaces;
 
 namespace GuessMyNumber.Core.Game
