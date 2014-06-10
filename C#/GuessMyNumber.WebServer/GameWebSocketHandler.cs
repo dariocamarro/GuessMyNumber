@@ -5,13 +5,14 @@ using Gamify.Sdk.Services;
 using Gamify.Sdk.Setup;
 using Microsoft.Web.WebSockets;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace GuessMyNumber.WebServer
 {
     public class GameWebSocketHandler : WebSocketHandler
     {
-        private static WebSocketCollection connectedClients;
+        private static ICollection<WebSocketHandler> connectedClients;
 
         private readonly IGameInitializer gameInitializer;
         private readonly ISerializer serializer;
@@ -70,8 +71,8 @@ namespace GuessMyNumber.WebServer
         {
             base.OnClose();
 
+            this.gameService.Disconnect(this.UserName);
             connectedClients.Remove(this);
-            gameService.Disconnect(this.UserName);
         }
 
         private void Initialize()
@@ -91,7 +92,10 @@ namespace GuessMyNumber.WebServer
                 .Cast<GameWebSocketHandler>()
                 .FirstOrDefault(c => c.UserName == userName);
 
-            client.Send(serializedNotification);
+            if (client != null)
+            {
+                client.Send(serializedNotification);
+            }
         }
     }
 }

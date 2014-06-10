@@ -3,7 +3,6 @@ using Autofac.Integration.WebApi;
 using Gamify.Sdk;
 using Gamify.Sdk.Setup;
 using GuessMyNumber.Core.Game.Setup;
-using System;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
