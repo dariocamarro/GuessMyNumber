@@ -1,8 +1,8 @@
-﻿using GuessMyNumber.Core.Interfaces;
-using Gamify.Sdk.Setup.Definition;
+﻿using Gamify.Sdk;
 using Gamify.Sdk.Contracts.Notifications;
 using Gamify.Sdk.Contracts.Requests;
-using Gamify.Sdk;
+using Gamify.Sdk.Setup.Definition;
+using GuessMyNumber.Core.Interfaces;
 
 namespace GuessMyNumber.Core.Game.Setup
 {

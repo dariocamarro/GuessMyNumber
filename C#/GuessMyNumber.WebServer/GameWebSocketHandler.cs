@@ -3,6 +3,7 @@ using Gamify.Sdk.Contracts.Notifications;
 using Gamify.Sdk.Contracts.Requests;
 using Gamify.Sdk.Services;
 using Gamify.Sdk.Setup;
+using GuessMyNumber.Core.Game.Setup;
 using Microsoft.Web.WebSockets;
 using System;
 using System.Collections.Generic;
@@ -77,7 +78,9 @@ namespace GuessMyNumber.WebServer
 
         private void Initialize()
         {
-            this.gameService = gameInitializer.Initialize();
+            var gameDefinition = new GuessMyNumberDefinition();
+
+            this.gameService = gameInitializer.Initialize(gameDefinition);
 
             this.gameService.Notification += (sender, args) =>
             {

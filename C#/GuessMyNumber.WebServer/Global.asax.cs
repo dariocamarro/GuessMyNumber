@@ -2,7 +2,6 @@
 using Autofac.Integration.WebApi;
 using Gamify.Sdk;
 using Gamify.Sdk.Setup;
-using GuessMyNumber.Core.Game.Setup;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
@@ -45,8 +44,7 @@ namespace GuessMyNumber.WebServer
 
         private void ConfigureDependencies()
         {
-            var gameDefinition = new GuessMyNumberDefinition();
-            var gameInitializer = new GameInitializer(gameDefinition);
+            var gameInitializer = new GameInitializer();
 
             var containerBuilder = new ContainerBuilder();
 
