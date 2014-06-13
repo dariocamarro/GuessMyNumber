@@ -6,17 +6,17 @@ namespace GuessMyNumber.Core.Game.Setup
 {
     public class SessionPlayerSetup : ISessionPlayerSetup
     {
-        public void GetPlayerReady(GameAcceptedRequestObject gameAcceptedRequest, ISessionGamePlayerBase gamePlayer)
+        public void GetPlayerReady(GameAcceptedRequestObject gameAcceptedRequest, SessionGamePlayer gamePlayer)
         {
             this.GetPlayerReady(gameAcceptedRequest.AdditionalInformation, gamePlayer);
         }
 
-        public void GetPlayerReady(CreateGameRequestObject createGameRequest, ISessionGamePlayerBase gamePlayer)
+        public void GetPlayerReady(CreateGameRequestObject createGameRequest, SessionGamePlayer gamePlayer)
         {
             this.GetPlayerReady(createGameRequest.AdditionalInformation, gamePlayer);
         }
 
-        private void GetPlayerReady(string additionalInformation, ISessionGamePlayerBase gamePlayer)
+        private void GetPlayerReady(string additionalInformation, SessionGamePlayer gamePlayer)
         {
             var playerNumber = new Number(additionalInformation);
 

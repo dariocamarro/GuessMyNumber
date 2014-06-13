@@ -5,14 +5,24 @@ namespace GuessMyNumber.Core.Game.Setup
 {
     public class GuessMyNumberDefinition : GameDefinition<INumber, IAttemptResult>
     {
-        public override IGameInformationNotificationFactory GetGameInformationNotificationFactory()
+        public override ISessionPlayerFactory GetSessionPlayerFactory()
         {
-            return new GameInformationNotificationFactory();
+            return new GuessMyNumberSessionPlayerFactory();
         }
 
-        public override IMoveHandler GetMoveHandler()
+        public override ISessionPlayerSetup GetSessionPlayerSetup()
         {
-            return new GuessMyNumberMoveHandler();
+            return new SessionPlayerSetup();
+        }
+
+        public override IMoveFactory<INumber> GetMoveFactory()
+        {
+            return new GuessMyNumberMoveFactory();
+        }
+
+        public override IMoveProcessor<INumber, IAttemptResult> GetMoveProcessor()
+        {
+            return new GuessMyNumberMoveProcessor();
         }
 
         public override IMoveResultNotificationFactory GetMoveResultNotificationFactory()
@@ -20,19 +30,19 @@ namespace GuessMyNumber.Core.Game.Setup
             return new MoveResultNotificationFactory();
         }
 
-        public override ISessionPlayerFactory<INumber, IAttemptResult> GetSessionPlayerFactory()
-        {
-            return new SessionPlayerFactory();
-        }
-
         public override IGameInviteDecorator GetGameInviteDecorator()
         {
             return new GameInviteDecorator();
         }
 
-        public override ISessionPlayerSetup GetSessionPlayerSetup()
+        public override IGameInformationNotificationFactory<INumber, IAttemptResult> GetGameInformationNotificationFactory()
         {
-            return new SessionPlayerSetup();
+            return new GameInformationNotificationFactory();
+        }
+
+        public override IPlayerHistoryItemFactory<INumber, IAttemptResult> GetPlayerHistoryItemfactory()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

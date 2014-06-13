@@ -48,12 +48,14 @@
     <Compile Include="Game\Setup\GameInviteDecorator.cs" />
     <Compile Include="Game\Setup\GuessMyNumberDefinition.cs" />
     <Compile Include="Game\Setup\GameInformationNotificationFactory.cs" />
-    <Compile Include="Game\Setup\GuessMyNumberMoveHandler.cs" />
+    <Compile Include="Game\Setup\GuessMyNumberMoveFactory.cs" />
     <Compile Include="Game\MoveResultNotificationObject.cs" />
     <Compile Include="Game\GuessMyNumberPlayer.cs" />
+    <Compile Include="Game\Setup\GuessMyNumberMoveProcessor.cs" />
+    <Compile Include="Game\Setup\GuessMyNumberPlayerHistoryItemFactory.cs" />
     <Compile Include="Game\Setup\MoveResultNotificationFactory.cs" />
     <Compile Include="Game\PlayerHistoryItemObject.cs" />
-    <Compile Include="Game\Setup\SessionPlayerFactory.cs" />
+    <Compile Include="Game\Setup\GuessMyNumberSessionPlayerFactory.cs" />
     <Compile Include="Game\Setup\SessionPlayerSetup.cs" />
     <Compile Include="Interfaces\IAnalysisResult.cs" />
     <Compile Include="Interfaces\IAttemptResult.cs" />
