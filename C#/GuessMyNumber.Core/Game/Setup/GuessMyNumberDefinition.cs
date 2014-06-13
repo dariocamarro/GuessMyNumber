@@ -42,7 +42,7 @@ namespace GuessMyNumber.Core.Game.Setup
 
         public override IPlayerHistoryItemFactory<INumber, IAttemptResult> GetPlayerHistoryItemfactory()
         {
-            throw new System.NotImplementedException();
+            return new GuessMyNumberPlayerHistoryItemFactory();
         }
     }
 }

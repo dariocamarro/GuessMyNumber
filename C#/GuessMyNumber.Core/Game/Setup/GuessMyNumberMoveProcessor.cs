@@ -28,7 +28,7 @@ namespace GuessMyNumber.Core.Game.Setup
             var triedNumber = move.MoveObject;
             var result = this.numberComparer.Compare(guessMyNumberPlayer.Number, triedNumber);
 
-            return new GuessMyNumberResponse(result);
+            return new GuessMyNumberResponse(result) { IsWin = result.IsWinner() };
         }
     }
 }
