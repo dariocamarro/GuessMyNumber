@@ -8,7 +8,7 @@ namespace GuessMyNumber.Core.Game.Setup
     {
         public IPlayerHistoryItem Create(IAttemptResult gameResponseObject)
         {
-            return new PlayerHistoryItemObject
+            return new GuessMyNumberPlayerHistoryItemObject
             {
                 Number = gameResponseObject.Number.ToString(),
                 Goods = gameResponseObject.Goods,

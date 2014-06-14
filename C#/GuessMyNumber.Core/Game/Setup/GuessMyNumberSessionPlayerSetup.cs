@@ -4,7 +4,7 @@ using Gamify.Sdk.Setup.Definition;
 
 namespace GuessMyNumber.Core.Game.Setup
 {
-    public class SessionPlayerSetup : ISessionPlayerSetup
+    public class GuessMyNumberSessionPlayerSetup : ISessionPlayerSetup
     {
         public void GetPlayerReady(GameAcceptedRequestObject gameAcceptedRequest, SessionGamePlayer gamePlayer)
         {

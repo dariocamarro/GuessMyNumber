@@ -2,7 +2,7 @@
 
 namespace GuessMyNumber.Core.Game
 {
-    public class PlayerHistoryItemObject : IPlayerHistoryItem
+    public class GuessMyNumberPlayerHistoryItemObject : IPlayerHistoryItem
     {
         public string Number { get; set; }
 

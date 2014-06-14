@@ -9,6 +9,8 @@ namespace GuessMyNumber.Core
     {
         private IList<INumberUnit> units;
 
+        public string Value { get { return this.ToString(); } }
+
         public IEnumerable<INumberUnit> Units
         {
             get
