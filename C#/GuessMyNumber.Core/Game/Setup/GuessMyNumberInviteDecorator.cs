@@ -4,7 +4,7 @@ using Gamify.Sdk.Setup.Definition;
 
 namespace GuessMyNumber.Core.Game.Setup
 {
-    public class GameInviteDecorator : IGameInviteDecorator
+    public class GuessMyNumberInviteDecorator : IGameInviteDecorator
     {
         public void Decorate(GameInviteNotificationObject gameInviteNotification, IGameSession session)
         {

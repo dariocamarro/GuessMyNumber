@@ -2,7 +2,7 @@
 
 namespace GuessMyNumber.Core.Game
 {
-    public class MoveResultNotificationObject : IMoveResultNotificationObject
+    public class GuessMyNumberMoveResultNotificationObject : IMoveResultNotificationObject
     {
         public string Message
         {

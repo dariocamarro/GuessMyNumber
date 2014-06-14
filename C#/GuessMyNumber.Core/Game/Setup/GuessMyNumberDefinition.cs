@@ -12,7 +12,7 @@ namespace GuessMyNumber.Core.Game.Setup
 
         public override ISessionPlayerSetup GetSessionPlayerSetup()
         {
-            return new SessionPlayerSetup();
+            return new GuessMyNumberSessionPlayerSetup();
         }
 
         public override IMoveFactory<INumber> GetMoveFactory()
@@ -27,17 +27,17 @@ namespace GuessMyNumber.Core.Game.Setup
 
         public override IMoveResultNotificationFactory GetMoveResultNotificationFactory()
         {
-            return new MoveResultNotificationFactory();
+            return new GuessMyNumberMoveResultNotificationFactory();
         }
 
         public override IGameInviteDecorator GetGameInviteDecorator()
         {
-            return new GameInviteDecorator();
+            return new GuessMyNumberInviteDecorator();
         }
 
         public override IGameInformationNotificationFactory<INumber, IAttemptResult> GetGameInformationNotificationFactory()
         {
-            return new GameInformationNotificationFactory();
+            return new GuessMyNumberInformationNotificationFactory();
         }
 
         public override IPlayerHistoryItemFactory<INumber, IAttemptResult> GetPlayerHistoryItemfactory()
