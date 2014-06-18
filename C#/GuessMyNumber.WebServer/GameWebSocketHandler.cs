@@ -84,16 +84,16 @@ namespace GuessMyNumber.WebServer
 
             this.gameService.Notification += (sender, args) =>
             {
-                this.PushMessage(args.UserName, args.Notification);
+                this.PushMessage(args.Receiver, args.Notification);
             };
         }
 
-        private void PushMessage(string userName, GameNotification notification)
+        private void PushMessage(string receiver, GameNotification notification)
         {
             var serializedNotification = this.serializer.Serialize(notification);
             var client = connectedClients
                 .Cast<GameWebSocketHandler>()
-                .FirstOrDefault(c => c.UserName == userName);
+                .FirstOrDefault(c => c.UserName == receiver);
 
             if (client != null)
             {
