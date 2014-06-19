@@ -45,6 +45,9 @@
     <Reference Include="Autofac.Integration.WebApi">
       <HintPath>..\packages\Autofac.WebApi.3.1.0\lib\net40\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook">
+      <HintPath>..\packages\Facebook.6.6.0\lib\net45\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="Gamify.Sdk">
       <HintPath>..\Lib\Gamify.Sdk.dll</HintPath>
     </Reference>
