@@ -1,5 +1,4 @@
 ﻿using GuessMyNumber.Core.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +7,9 @@ namespace GuessMyNumber.Core
 { 
     public class Number : INumber
     {
-        private readonly IList<INumberUnit> units;
+        private IList<INumberUnit> units;
+
+        public string Value { get { return this.ToString(); } }
 
         public IEnumerable<INumberUnit> Units
         {
@@ -16,11 +17,15 @@ namespace GuessMyNumber.Core
             {
                 return this.units;
             }
+            set
+            {
+                this.units = value.ToList();
+            }
         }
 
         public Number()
         {
-            this.units = new List<INumberUnit>();
+            this.Units = new List<INumberUnit>();
         }
 
         public Number(int firstUnitValue, int secondUnitValue, int thirdUnitValue)

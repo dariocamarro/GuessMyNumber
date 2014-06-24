@@ -5,6 +5,8 @@ namespace GuessMyNumber.Core.Interfaces
 {
     public interface INumber : ICloneable
     {
+        string Value { get; }
+
         IEnumerable<INumberUnit> Units { get; }
 
         void AddUnit(int position, int value);

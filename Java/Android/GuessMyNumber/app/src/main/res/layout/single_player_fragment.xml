@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pizarra"
+    tools:context="ar.com.gmn.android.ar.com.gmn.android.fragment.SinglePlayerFragment"
+    tools:ignore="MergeRootFrame" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="22dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:background="@android:color/transparent"
+            android:orientation="vertical" >
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="3"
+                android:background="@android:color/transparent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/numeroLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="1dp">
+
+                    <ar.com.gmn.android.view.component.CustomNumberPicker2
+                        android:id="@+id/digit1"
+                        style="@style/SP_NumberPiker"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginBottom="2dp"
+
+                        android:layout_weight="1">
+
+                    </ar.com.gmn.android.view.component.CustomNumberPicker2>
+                    <ar.com.gmn.android.view.component.CustomNumberPicker2
+                        android:id="@+id/digit2"
+                        style="@style/SP_NumberPiker"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginBottom="2dp"
+
+                        android:layout_weight="1">
+
+                    </ar.com.gmn.android.view.component.CustomNumberPicker2>
+                    <ar.com.gmn.android.view.component.CustomNumberPicker2
+                        android:id="@+id/digit3"
+                        style="@style/SP_NumberPiker"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginBottom="2dp"
+
+                        android:layout_weight="1">
+
+                    </ar.com.gmn.android.view.component.CustomNumberPicker2>
+                    <ar.com.gmn.android.view.component.CustomNumberPicker2
+                        android:id="@+id/digit4"
+                        style="@style/SP_NumberPiker"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginBottom="2dp"
+
+                        android:layout_weight="1">
+
+                    </ar.com.gmn.android.view.component.CustomNumberPicker2>
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/prueba"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="4"
+                    android:background="@drawable/try_chalk_button"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:scaleType="fitCenter" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent">
+
+                <TableLayout
+                android:id="@+id/results"
+                android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="10dp" >
+
+
+                
+            </TableLayout>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
